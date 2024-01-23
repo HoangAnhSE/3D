@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v1.14.0/dist/aframe-extras.min.js"></script>
+    
+     <script src="https://unpkg.com/aframe-animation-mixer@2.0.1/dist/aframe-animation-mixer.min.js"></script>
+
+     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+
+     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+     
+
+
+   
+    
+    
+ 
+    <script type="text/javascript">
+      <!---JV--->
+      /* <!--Function that is called when the light switch is pressed-->'#main-light' */
+      function setLight() {
+        var light = document.querySelector('#main-light');
+        var current_intensity = parseFloat(light.getAttribute('intensity'));
+        var target_intensity;
+    
+        // Define the target intensity based on the current intensity
+        if (current_intensity === 1) target_intensity = 0.5;
+        else if (current_intensity === 0.5) target_intensity = 0;
+        else if (current_intensity === 0) target_intensity = 2;
+        else target_intensity = 1;
+    
+        // Calculate the step size for smooth transition
+        var step = (target_intensity - current_intensity) / 20; // You can adjust the duration
+    
+        // Use requestAnimationFrame for smoother animation
+        function animate() {
+          if ((current_intensity < target_intensity && step > 0) || (current_intensity > target_intensity && step < 0)) {
+            current_intensity += step;
+            light.setAttribute('intensity', current_intensity.toFixed(1));
+            requestAnimationFrame(animate);
+          } else {
+            light.setAttribute('intensity', target_intensity.toFixed(1));
+          }
+        }
+    
+        animate();
+      }
+
+
+    
+
+   
+    </script>
+
+
+  </head>
+  <body>
+    
+    <a-scene>
+
+    <!---Player Camera--->
+    <a-camera id="cam" position="-0.94025 2.5 68.17893" camera="" rotation="-18.907607239317173 -2.062648062471569 0" 
+    look-controls="" wasd-controls="" data-aframe-inspector-original-camera="">  <a-cursor></a-cursor> </a-camera>></a-camera>
+      
+
+
+</a-entity>
+
+ 
+      <!--car-->
+      <a-entity gltf-model="/assets/car/car2/scene.gltf" position="-9.96198 -0.49737 34.08422" scale="3 2.5 3" rotation="0 42.20063344256565 0"></a-entity>
+      
+      <a-entity gltf-model="/assets/testAA/house.gltf" position="-6.689 -0.4624 3.845" rotation="0 133 0" scale="2 3 2"></a-entity>
+      <a-entity gltf-model="/assets/Piano/scene.gltf" position="-25.86561 0.90322 22.40765" scale="0.002 0.002 0.002"></a-entity>
+      <!--frag-->
+      <a-entity geometry="depth: 0.6; width: 30" position="-0.69705 22.11166 19.63355" 
+      rotation="-0.5878546978042246 85.99351659779987 -90.0128155306426" material="roughness: 1; src: images/trim.jpg; repeat: 32 1" scale="0.29313 0.18232 0.63891"></a-entity>
+      <a-box src="./Video/frag.mp4" position="2.70824 24.67308 19.62034" autoplay="TRUE" muted="TRUE" 
+      color="7BC8A4" height="1" width="0.5" length="0.5" shadow="" geometry="height: 2.5; width: 0.15; depth: 4" material="color: #ffffff" scale="1 1.472 1.65" rotation="0 90 0"></a-box>
+      
+      <!--umbre-->
+      <a-entity gltf-model="./assets/umbrella/scene.gltf" position="-25.2192 -0.4066 11.91563" rotation="5 0 0" scale="0.1 0.1 0.1" color="blue" ></a-entity>
+      
+
+
+<!--phoenix-->
+
+
+
+<a-entity id="gokuEntity" gltf-model="./assets/dog/wolf/scene.gltf" position="-25.82177 27.27178 -41.88731" scale="0.04 0.04 0.04" animation-mixer="Clip: Take 001">
+</a-entity>
+
+
+
+
+
+      <!--chair-->
+      <a-entity gltf-model="./assets/chair/scene.gltf" position="7.20967 -2.06463 42.72201" rotation="1.0811713594118635 0 -0.4222698950114167" scale="2 2 2" color="blue"></a-entity>
+      <!--bed-->
+      <<a-entity gltf-model="./assets/bed/scene.gltf" position="2.56183 10.02863 0.67396" rotation="-0.6199403343315507 89.9887513032471 -0.5110783532566944" scale="2.5 2.5 2" color="blue"></a-entity>
+      <!--girl models-->
+      <a-entity gltf-model="./assets/girl/scene.gltf" position="-18.48036 0.21623 21.65945" rotation="0.2824681929994959 90.00021045914971 0" scale="0.72 0.67 0.76" color="blue"></a-entity>
+      <a-box material="color: tomato; transparent: true; opacity: 0" depth="2" height="2" width="2" sound="src: Audio/ara.mp3; on: click" class="intersectable" position="-18.48803 2.5456 21.60739" scale="0.65691 1.93213 0.75483" 
+      geometry="" rotation="0 8.384664373944467 0"></a-box>
+      <!--racer girl models--
+      <a-entity gltf-model="./assets/girl/racergirl/scene.gltf" position="4.58581 -0.68338 32.091" rotation="0.2824681929994959 5.916935150316012 0" scale="3 3 3" color="blue"></a-entity>-->
+      <!--raiden models-->
+      <a-entity id="raiden" gltf-model="./assets/girl/raiden/scene.gltf" position="-14.28632 0.38013 3.038" rotation="0.282 67.568 0" scale="0.2 0.2 0.2" color="blue"></a-entity>
+      <a-entity id="statue base" gltf-model="./assets/statue base/scene.gltf" position="-16.70082 0.12013 8.82854" rotation="0.28189523520436505 67.56833982198285 0" scale="0.5 0.5 0.5" color="blue"></a-entity>
+      <a-box material="color: tomato; transparent: true; opacity: 0" depth="2" height="2" width="2" 
+      sound="src: Audio/raiden.mp3; on: click" class="intersectable" position="-16.701 2.46305 8.829" scale="0.657 1.932 0.755" geometry="" rotation="0 8.385 0"></a-box>
+      <!--paimon-->
+      <a-entity id="paimon" gltf-model="./assets/paimon/scene.gltf" position="-16.75387 2.99975 7.62471" rotation="0.282 67.568 0" scale="0.002 0.002 0.002" color="blue"></a-entity>
+      <!--guitar-->
+      <a-obj-model src="./assets/guitar/guitar.obj" mtl="./assets/guitar/guitar.mtl" position="-17.39467 -0.54813 3.90603" scale="0.1 0.1 0.1" rotation="0 73.30422030903753 0" material="" obj-model=""></a-obj-model>
+      <!--toilet-->
+      <<a-entity gltf-model="./assets/toilet/scene.gltf" position="-6.9617 9.30408 5.28137" rotation="-0.6199403343315507 89.9887513032471 -0.5110783532566944" scale="0.3 0.3 0.3" color="blue"></a-entity>
+      <!--piano-->
+      <a-entity gltf-model="/assets/Piano/scene.gltf" position="-13.73068 -0.36278 -0.24251" scale="3 2 2"></a-entity>
+
+      <a-box
+  material="color: tomato; transparent: true; opacity: 0"
+  depth="2" height="2" width="2"
+  class="intersectable"
+  position="-13.62139 2.12203 2.33306"
+  scale="2.8394 0.65805 0.79098"
+  geometry=""
+  sound="src: Audio/piano.mp3; on: click"
+  onclick="toggleSound()"
+></a-box>
+
+
+
+
+<!--picture-->
+<a-box src="./Textures/hanoi.jpg" position="2.46025 4.40066 6.68576"
+ height="1" width="0.5" length="0.5" geometry="height: 2.5; width: 0.15; depth: 4" scale="1 1.472 1.65" rotation="0 87.97480465336226 0" material=""></a-box>
+ <a-box src="./Textures/raiden.jpg" position="-18.294 5.50627 8.13754" height="1" width="0.5" length="0.5"
+  geometry="height: 2.5; width: 0.15; depth: 4" scale="1 1.296 1.7335" rotation="0 -1.7480000000000002 0" material=""></a-box>
+
+
+      <!--tree-->
+      <a-entity gltf-model="/assets/tree/scene.gltf" position="-32.89658 -0.4066 24.59399" scale="5 5 5" rotation="0 92.36194249067897 0"></a-entity>
+      <!--ptree-->
+      <a-entity id="Ptree" gltf-model="/assets/tree/public tree/scene.gltf" position="-45.77232 -0.18738 37.87463" scale="0.3 0.3 0.3" rotation="0 92.36194249067897 0"></a-entity>
+      <a-entity id="Ptree" gltf-model="/assets/tree/public tree/scene.gltf" position="-20.85992 -0.18738 86.16345" scale="0.3 0.3 0.3" rotation="0 180 0"></a-entity>
+      <a-entity id="Ptree" gltf-model="/assets/tree/public tree/scene.gltf" position="45.01912 -0.18738 37.87463" scale="0.3 0.3 0.3" rotation="0 92.36194249067897 0"></a-entity>
+      <a-entity id="Ptree" gltf-model="/assets/tree/public tree/scene.gltf" position="42.8975 -0.18738 -31.09161" scale="0.3 0.3 0.3" rotation="0 92.36194249067897 0"></a-entity>
+      <a-entity id="Ptree" gltf-model="/assets/tree/public tree/scene.gltf" position="-19.76778 -0.18738 -54.79416" scale="0.3 0.3 0.3" rotation="0 180 0"></a-entity>
+
+
+
+
+      <!--helicopter-->
+      <a-entity gltf-model="./assets/helicopter/scene.gltf" position="-19.41835 3.12066 41.4173" rotation="0.2824681929994959 -90 0" scale="2 2 2" color="blue"></a-entity>
+      <!--zone for helicopter-->
+      <a-cylinder position="-18.28206 -0.56203 41.13358" radius="1.8" height="10" color="#FFC65D" material="src: ./Textures/stonefences.jpg" geometry="" scale="3.99899 0.10075 3.93037"></a-cylinder>
+
+      <!--Dog-->
+      <a-entity gltf-model="./assets/dog/dog1/scene.gltf" position="4.45701 -0.41724 39.17868" rotation="-2.3158954079187875 66.4745633910781 0.7219268218648373" scale="0.006 0.006 0.006" color="blue"></a-entity>
+      <a-box material="color: tomato; transparent: true; opacity: 0" depth="2" height="2" width="2"
+       sound="src: Audio/dogpark.mp3; on: click" class="intersectable" position="4.15558 1.08181 39.5578" scale="0.73912 1.93213 1.57358" geometry="" rotation="0 8.384664373944467 0"></a-box>
+      <!--Dog poop-->
+      <a-entity id="dog poop" gltf-model="./assets/dog/dog poop/scene.gltf" position="-31.82625 0.96397 -4.56203" rotation="-2.3158954079187875 -30.515159210872515 0.7219268218648373" scale="3 3 3" color="blue"></a-entity>
+
+
+
+       <!-- piano chair-->
+      <a-entity gltf-model="./assets/sofa/ArmChair/scene.gltf" position="-14.35456 0.09458 4.45144" rotation="-2.3158954079187875 180 0.7219268218648373" scale="0.003 0.002 0.003" color="blue"></a-entity>
+      <!--TV-->
+      <a-entity gltf-model="./assets/TV/scene.gltf" position="7.82769 3.43066 11.2541" scale="0.78718 0.74268 0.6" rotation="0 90 0"></a-entity>
+      <!--TVtable-->
+      <a-entity gltf-model="./assets/TVtable/desk.gltf" position="7.74176 0.05652 11.23192" scale="0.004 0.002 0.003" rotation="0 -91.530007772149 0"></a-entity>
+      <!--videoTV-->
+      <a-box src="./Video/111.mp4" position="7.89476 3.79914 11.2347" autoplay="TRUE" muted="TRUE"
+       color="7BC8A4" height="1" width="0.5" length="0.5" shadow="" geometry="height: 2.5; width: 0.15; depth: 4" material="color: #ffffff" scale="1 1.47154 1.65022"></a-box>
+
+
+      
+
+
+
+
+
+
+
+       <!--be ca-->
+       <a-box src="./Video/vecteezy_african-lake-fishes-swimming-behind-the-glass-in-aquarium_5485471.mov" position="-3.87845 2.49338 1.07046" rotation="0 90.10964539801972 0" color="#4CC3D9" material="" geometry="" scale="1.65613 1.83041 4.95918"></a-box>
+       <a-box position="-3.87191 0.6562 1.07774" rotation="0 90 0" color="black" scale="1.65613 1.83041 4.95918" material="" geometry=""></a-box>
+       <a-box position="-3.87191 3.61153 1.07774" rotation="0 90 0" color="black" scale="1.65613 0.47233 4.95918" material="" geometry=""></a-box>
+ <!--Ceiling Fan-->
+ <a-entity id="CeilingFan" obj-model="mtl: assets/Fan/540 Ceiling Fan.mtl; obj: assets/Fan/540 Ceiling Fan.obj" 
+  position="1.15557 6.00712 12.96484" rotation="0 46.32879561357526 0" scale="0.01 0.01 0.01" 
+  animation="property: rotation; dur: 1500; from: 0 0 0; to: 0 360 0; easing: linear; loop: true;"></a-entity>
+
+
+      
+
+ 
+<!--Setup lighting-->
+<a-light type="directional" color="grey" position="-.5 1 1" angle="60" decay="1" intensity=".6"></a-light>
+<a-light id="main-light" type="ambient" color="white" position="0 0 0" angle="60" decay="1" intensity="1"></a-light>
+
+
+
+
+<!--light button-->
+<a-box onclick="setLight()" position="-1.87686 2.4934 6.57057"  rotation="-0.5878546978042246 0 -90.0128155306426" scale="0.51026 0.34061 0.12635" color="#4CC3D9"
+       event-set__enter="_event: mouseenter; color: #8FF7FF"
+       event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>
+
+
+
+       
+
+ <!-- Buttons for moving up/down stairs -->
+ <a-box id="up" src="./Textures/lift.png" geometry="width: 0.28; height: 0.6; depth: 0.6" position="4.8116 2.98608 6.32919" class="intersectable" material="" rotation="0 88.62683062422113 0"></a-box>
+ <a-box id="down" src="./Textures/lift.png" geometry="depth: 0.6; height: 0.6; width: 0.28" position="5.61238 12.16706 4.30207" class="intersectable" material="" rotation="0 -90.2935648502567 0" scale="0.75675 0.75651 0.50303"></a-box>
+ <script>
+     var cam = document.querySelector('#cam');
+     var ch1 = document.querySelector('#up');
+     var ch2 = document.querySelector('#down');
+
+     ch1.addEventListener('click', function () {
+         cam.setAttribute('position' , {x: 6.557, y: 11.9, z: 5.59});
+         cam.setAttribute('rotation' , {x: 0, y: 90, z: 0});
+     });
+     ch2.addEventListener('click', function () {
+         cam.setAttribute('position' , {x: 6.557, y: 2.7, z: 4.00});
+         cam.setAttribute('rotation' , {x: 0, y: 0, z: 0});
+     });
+     </script>
+
+
+
+
+<!--rock t2-->
+<a-entity static-body="" geometry="depth: 35; height: 0.5; width: 8" position="2.16483 9.02421 6.43142" material="shader: flat; side: double; src: ./Textures/road.jpg; repeat: 5 15" scale="0.54948 0.28392 -0.39692" rotation="0 90 0"></a-entity>
+<!--plant t2-->
+<a-entity gltf-model="./assets/plant/scene.gltf" position="-0.2642 9.10039 5.21828" rotation="-2.3158954079187875 2.1703641279555583 0.7219268218648373" scale="0.01 0.01 0.01" color="blue"></a-entity>
+
+<!--lift-->
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="6.40231 3.73527 0.83484" rotation="0 180 0" material="roughness: 1; src: ./Textures/lift_stone.jpg; repeat: 1 1" scale="-0.06767 1.4479 1"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="6.40231 3.73527 6.37323" rotation="0 180 0" material="roughness: 1; src: ./Textures/lift_stone.jpg; repeat: 1 1" scale="-0.06767 1.4479 1"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="9 3.735 3.52922" rotation="0 90 0" material="roughness: 1; src: ./Textures/lift_stone.jpg; repeat: 1 1" scale="-0.068 1.448 1"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="3.724 3.735 1.398" rotation="0 90 0" material="roughness: 1; src: ./Textures/lift_stone.jpg; repeat: 1 3" scale="-0.02253 1.4479 2.15101"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="3.72405 3.73527 5.61" rotation="0 90 0" material="roughness: 1; src: ./Textures/lift_stone.jpg; repeat: 1 3" scale="-0.02253 1.4479 2.15101"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="3.67568 5.71143 3.46213" rotation="0 90 0" material="roughness: 1; src: ./Textures/lift_stone.jpg; repeat: 1 1" scale="-0.07709 0.64127 1.6856"></a-entity>
+
+
+
+ <!-- door lift-->
+ 
+ 
+ 
+ <a-box id="myBox" position="3.709 3.8106 3.43787" src="./Textures/lift.jpg" 
+ animation__move="property: position; to: 3.709 3.8106 3.43787; easing: easeInOutQuad; dur: 3000" 
+ move-box="" material="" geometry="" scale="0.278 7.41047 2.74729"></a-box>
+
+
+
+<script>
+  var boxEl = document.getElementById('myBox');
+
+  boxEl.addEventListener('click', function () {
+    boxEl.emit('moveBox');
+  });
+
+  // Toggle the state
+  var isBoxMoved = false;
+
+  AFRAME.registerComponent('move-box', {
+    init: function () {
+      var data = this.data;
+      var el = this.el;
+
+      el.addEventListener('moveBox', function () {
+        if (isBoxMoved) {
+          // Move the box back to its original position
+          el.setAttribute('animation__move', 'to: 3.70929 3.8106 1.2');
+        } else {
+          // Move the box to a new position
+          el.setAttribute('animation__move', 'to: 3.709 3.8106 3.43787');
+        }
+
+        // Toggle the state
+        isBoxMoved = !isBoxMoved;
+      });
+    },
+  });
+
+  // Attach the component to the box
+  boxEl.setAttribute('move-box', '');
+</script>
+
+
+
+
+
+<!--ball-->
+<a-sphere id="ball" position="-6.85071 0.24623 -29.48356" radius="0.70" src="./Textures/ball.jpg"
+    animation__move="property: position; to: -6.85071 0.24623 -29.48356; easing: easeInOutQuad" move-ball="" material="" geometry=""
+    raycaster="objects: a-sphere">
+  </a-sphere>
+
+  <script>
+    var ballEl = document.getElementById('ball');
+    var cameraEl = document.querySelector('[camera]');
+
+    // Toggle the state
+    var isBallMoved = false;
+
+    AFRAME.registerComponent('move-ball', {
+      init: function () {
+        var data = this.data;
+        var el = this.el;
+
+        el.addEventListener('raycaster-intersected', function () {
+          if (!isBallMoved) {
+            // Move the ball to a new position
+            el.setAttribute('animation__move', 'to: -28.85071 0.24623 -29.48356');
+            isBallMoved = true;
+          }
+        });
+
+        el.addEventListener('raycaster-intersected-cleared', function () {
+          if (isBallMoved) {
+            // Move the ball back to its original position
+            el.setAttribute('animation__move', 'to: -6.85071 0.24623 -29.48356');
+            isBallMoved = false;
+          }
+        });
+      },
+    });
+
+    // Attach the component to the ball
+    ballEl.setAttribute('move-ball', '');
+  </script>
+
+
+
+
+
+<!-- door SE 1-->
+
+
+
+
+<script>
+  AFRAME.registerComponent('door', {
+    init: function () {
+      var isOpen = false;
+      this.el.addEventListener('click', () => {
+        isOpen = !isOpen;
+        if (isOpen) {
+          this.el.setAttribute('animation', 'property: rotation; to: 0 -90 0; dur: 1000');
+        } else {
+          this.el.setAttribute('animation', 'property: rotation; to: 0 0 0; dur: 1000');
+        }
+      });
+    }
+  });
+</script>
+
+<a-entity id="door rotation-2" position="8.092  9.135 4.302"  rotation="" door="" animation="property: rotation; to: 0 0 0">
+  <a-entity gltf-model="/assets/door/scene.gltf" position="-0.8 0 0" rotation="0 90 0" id="door" class="intersectable" scale="1 2.305 1.293">
+</a-entity>
+</a-entity>
+
+<!-- door SE 2-->
+
+<a-entity id="door rotation-3" position="0.552  9.135  8.817"  rotation="" door="" animation="property: rotation; to: 0 0 0">
+  <a-entity gltf-model="/assets/door/scene.gltf" position="-0.8 0 0" rotation="0 90 0" id="door" class="intersectable" scale="1 2.305 1.293">
+</a-entity>
+</a-entity>
+
+<!-- door SE 3-->
+
+<a-entity id="door rotation-4" position="-3.478  9.135  8.746"  rotation="" door="" animation="property: rotation; to: 0 0 0">
+  <a-entity gltf-model="/assets/door/scene.gltf" position="-0.8 0 0" rotation="0 90 0" id="door" class="intersectable" scale="1 2.305 1.293">
+</a-entity>
+</a-entity>
+
+<!-- door SE 4-->
+
+<a-entity id="door rotation-5" position="-3.099  9.135  3.755"  rotation="" door="" animation="property: rotation; to: 0 0 0">
+  <a-entity gltf-model="/assets/door/scene.gltf" position="-0.8 0 0" rotation="0 90 0" id="door" class="intersectable" scale="1 2.305 1.293">
+</a-entity>
+</a-entity>
+
+
+
+
+
+
+  
+<!-- goal-->
+<a-entity gltf-model="/assets/goal/goalf/scene.gltf" position="-28.36873 -0.4066 -30.29852" scale="5 3.66151 5" rotation="0 180 0"></a-entity>
+<a-entity gltf-model="/assets/goal/goalf/scene.gltf" position="25.16292 -0.4066 -30.29852" scale="5 3.66151 5" rotation=""></a-entity>
+
+
+<!--sofa-->
+<a-entity position="0.61689 -0.05923 11.63425" rotation="0 90 0" gltf-model="./assets/sofa/Couch/scene.gltf" scale="0.01 0.01 0.01"></a-entity>
+
+ <!---plant--->
+ <a-entity gltf-model="./assets/plant/scene.gltf" position="-4.24426 -0.06792 17.328" rotation="-2.3158954079187875 2.1703641279555583 0.7219268218648373" scale="0.02 0.02 0.02" color="blue"></a-entity>
+ <a-entity gltf-model="./assets/plant/scene.gltf" position="12.40357 -1.90476 25.07083" rotation="-2.3158954079187875 2.1703641279555583 0.7219268218648373" scale="0.05 0.05 0.05" color="blue"></a-entity>
+
+<!--SWpool-->
+<a-plane src="./Textures/warter.jpg"
+ position="-23.98652 1.11831 21.80743" rotation="-88.12549255348165 -88.62167400406496 178.53594079394503" width="15" height="5" scale="0.50209 1.6506 1" material="" geometry="" ></a-plane>
+<!--sky-->
+    <a-sky src= ./Textures/sky.jpg></a-sky>
+<!--grass-->
+    <a-entity static-body geometry="primitive: box; depth: 200; height: 0.1; width: 200" position="0 -0.5 -13.000" material="shader: flat; side: double; opacity: 1;
+src: ./Textures/grass.jpg; repeat: 50 50"></a-entity>
+
+<!-- fences-->
+
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 100" position="-36.11677 1.95925 3.51944" rotation="0 90 0" material="roughness: 1;
+  src: ./Textures/fences1.jpg; repeat: 20 2"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 100" position="36.11677 1.95925 3.51944" rotation="0 90 0" material="roughness: 1; 
+  src: ./Textures/fences1.jpg; repeat: 20 2"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 80" position="-1.123 1.959 -45.55934" rotation="0 180 0" material="roughness: 1;
+   src: ./Textures/fences1.jpg; repeat: 20 2"></a-entity> 
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 30" position="-22.22242 1.959 53.407" rotation="0 180 0" material="roughness: 1; 
+   src: ./Textures/fences1.jpg; repeat: 8 2"></a-entity>
+<a-entity static-body="" geometry="depth: 0.25; height: 5; width: 30" position="21.07545 1.959 53.407" rotation="0 180 0" material="roughness: 1;
+    src: ./Textures/fences1.jpg; repeat: 8 2"></a-entity>
+<!--road-->
+<a-entity static-body="" geometry="depth: 35; height: 0.5; width: 8" position="-0.643 -0.636 36.23915" material="shader: flat; side: double;
+    src: ./Textures/road.jpg; repeat: 5 15"></a-entity>
+
+<!--lampppp-->
+<a-cylinder position="4.76218 0.33628 53.4461" radius="1.4" height="10" color="#FFC65D" material="src: ./Textures/stonefences.jpg"></a-cylinder>
+<a-cylinder position="-5.82174 0.336 53.446" radius="1.4" height="10" color="#FFC65D" material="src: ./Textures/stonefences.jpg"></a-cylinder>
+ 
+<a-sphere position="4.74006 6.71201 53.51532" radius="2" color="" material="color: #FFF; src: ./Textures/spheredoor.jpg" geometry=""></a-sphere>
+<a-sphere position="-5.85926 6.78414 53.44791" radius="2" color="" material="color: #FFF; src: ./Textures/spheredoor.jpg" geometry=""></a-sphere>
+
+
+
+<!--choi-->
+
+<a-cylinder position="20.34246 -0.56203 37.68226" radius="1.4" height="10" color="#FFC65D" material="src: ./Textures/stonefences.jpg" geometry="" scale="3.99899 0.10075 3.93037"></a-cylinder>
+
+<a-entity geometry="depth: 0.6; width: 30" position="25.36409 3.29485 37.61426" rotation="-0.5878546978042246 85.99351659779987 -90.0128155306426" material="roughness: 1; src: images/trim.jpg; repeat: 32 1" scale="0.2362 0.18232 1.791"></a-entity>
+<a-entity geometry="depth: 0.6; width: 30" position="19.88178 3.29485 42.51657" rotation="-0.5878546978042246 85.99351659779987 -90.0128155306426" material="roughness: 1; src: images/trim.jpg; repeat: 32 1" scale="0.2362 0.18232 1.791"></a-entity>
+<a-entity geometry="depth: 0.6; width: 30" position="19.88178 3.29485 32.68768" rotation="-0.5878546978042246 85.99351659779987 -90.0128155306426" material="roughness: 1; src: images/trim.jpg; repeat: 32 1" scale="0.2362 0.18232 1.791"></a-entity>
+<a-cone position="20.31193 7.69197 37.48709" radius-bottom="2" radius-top="0.5" height="3" color="" src="./Textures/roof.jpg" material="  " geometry="" scale="3.17074 1.18256 3.29542"></a-cone>
+
+
+
+
+
+
+
+
+
+
+    </a-scene>
+
+  </body>
+</html>

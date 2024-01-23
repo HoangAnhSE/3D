@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bed
+* source:	https://sketchfab.com/3d-models/bed-e7cbcb10bd2843cf97786ee8266a3ddc
+* author:	Bryanna Cantrell (https://sketchfab.com/BryannaCantrell)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bed" (https://sketchfab.com/3d-models/bed-e7cbcb10bd2843cf97786ee8266a3ddc) by Bryanna Cantrell (https://sketchfab.com/BryannaCantrell) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

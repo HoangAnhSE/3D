@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dog 3
+* source:	https://sketchfab.com/3d-models/dog-3-f939db537d5740c2a58c29823566c144
+* author:	alitural (https://sketchfab.com/alitural)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dog 3" (https://sketchfab.com/3d-models/dog-3-f939db537d5740c2a58c29823566c144) by alitural (https://sketchfab.com/alitural) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
